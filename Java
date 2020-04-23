@@ -1,0 +1,260 @@
+01. Write a Java program to print 'Hello' on screen and then print your name on a separate line.	"public class Exercise1
+{
+ public static void main(String[] args) {
+  System.out.println(""Hello"");
+ }
+}
+
+02. Write a Java program to print the result of the following operations ITest Data: 
+a. -5 + 8 * 6 = 43
+b. (55+9) % 9  = 1
+c. 20 + -3*5 / 8  = 19
+d. 5 + 15 / 3 * 2 - 8 % 3 = 13
+"	"public class Exercise2 {
+ 
+ public static void main(String[] args) {
+  System.out.println(-5 + 8 * 6);
+  System.out.println((55+9) % 9);
+  System.out.println(20 + -3*5 / 8);
+  System.out.println(5 + 15 / 3 * 2 - 8 % 3);
+ }
+ }
+ 
+03.Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.  
+Test Data: 
+Input first number: 125 
+Input second number: 24 
+Expected Output: 
+125 + 24 = 149 
+125 - 24 = 101 
+125 x 24 = 3000 
+125 / 24 = 5 
+125 mod 24 = 
+"	"import java.util.Scanner;
+ public class Exercise3
+{
+public static void main(String args[])
+  {
+ int first, second, add, subtract, multiply;
+ float devide;
+ Scanner scanner = new Scanner(System.in);
+ System.out.print(""Enter Two Numbers : "");
+ first = scanner.nextInt();
+ second = scanner.nextInt();
+ add = first + second;
+ subtract = first - second;
+ multiply = first * second;
+ divide = (float) first / second;
+ System.out.println(""Sum = "" + add);
+ System.out.println(""Difference = "" + subtract);
+ System.out.println(""Multiplication = "" + multiply);
+ System.out.println(""Division = "" + divide);
+  }
+}
+
+04.Write a Java program that takes a number as input and prints its multiplication table upto 10. 
+ Test Data: 
+Input a number: 8 
+Expected Output : 
+8 x 1 = 8 
+8 x 2 = 16 
+8 x 3 = 24 
+... 
+8 x 10 = 80 
+"	"import java.util.Scanner;
+ public class Exercise4 {
+ public static void main(String[] args) 
+{
+  Scanner in = new Scanner(System.in);
+  System.out.print(""Input a number: "");
+  int num1 = in.nextInt();
+  for (int i=0; i< 10; i++){
+  System.out.println(num1 + "" x "" + (i+1) + "" = "" + (num1 * (i+1)));
+  }
+ }
+}
+
+05.Write a Java program to swap two variables. 	"public class Exercise5
+{
+  public static void main(String[] args) {
+  int a, b, temp;
+   a = 10;
+   b = 83;
+   System.out.println(""Before swapping : a, b = ""+a+"", ""+ + b);
+   temp = a;
+   a = b;
+   b = temp;   
+  System.out.println(""After swapping : a, b = ""+a+"", ""+ + b);
+ }
+ }
+ 
+06.Write a Java program to add two binary numbers. 
+Input Data: 
+Input first binary number: 10  
+Input second binary number: 11 
+Expected Output 
+Sum of two binary numbers: 101 
+"	"import java.util.Scanner;
+public class Exercise6 {
+ public static void main(String[] args)
+ {
+  long binary1, binary2;
+  int i = 0, remainder = 0;
+  int[] sum = new int[20];
+  Scanner in = new Scanner(System.in);
+
+  System.out.print(""Input first binary number: "");
+  binary1 = in.nextLong();
+  System.out.print(""Input second binary number: "");
+  binary2 = in.nextLong();
+
+  while (binary1 != 0 || binary2 != 0) 
+  {
+   sum[i++] = (int)((binary1 % 10 + binary2 % 10 + remainder) % 2);
+   remainder = (int)((binary1 % 10 + binary2 % 10 + remainder) / 2);
+   binary1 = binary1 / 10;
+   binary2 = binary2 / 10;
+  }
+  if (remainder != 0) {
+   sum[i++] = remainder;
+  }
+  --i;
+  System.out.print(""Sum of two binary numbers: "");
+  while (i >= 0) {
+   System.out.print(sum[i--]);
+  }
+   System.out.print(""\n"");  
+ }
+}
+
+07.Write a Java program to convert a decimal number to binary number. 
+Input Data:  
+Input a Decimal Number: 5 
+Expected Output 
+Binary number is: 101  
+"	"import java.util.Scanner;
+public class Exercise7 {
+public static void main(String args[])
+{
+int dec_num, quot, i=1, j;
+int bin_num[] = new int[100];
+Scanner scan = new Scanner(System.in);
+System.out.print(""Input a Decimal Number : "");
+dec_num = scan.nextInt();
+quot = dec_num;
+while(quot != 0)
+ {
+bin_num[i++] = quot%2;
+quot = quot/2;
+ }
+System.out.print(""Binary number is: "");
+for(j=i-1; j>0; j--)
+ {
+ System.out.print(bin_num[j]);
+ }
+ System.out.print(""\n"");
+ }
+}
+
+08.Write a Java program and compute the sum of the digits of an integer. 
+Input Data: 
+Input an integer: 25 
+Expected Output 
+The sum of the digits is: 7 
+"	"import java.util.Scanner;
+public class Exercise8 {
+public static void main(String[] args)
+{
+Scanner in = new Scanner(System.in);
+System.out.print(""Input an integer: "");
+int digits = in.nextInt();
+System.out.println(""The sum is "" + sumDigits(digits));
+}
+public static int sumDigits(long n) {
+int result = 0;
+while(n > 0) {
+result += n % 10;
+n /= 10;
+}
+return result;
+}
+}
+
+09.Write a Java program to compute the distance between two points on the surface of earth. (Hint: Use Math class methods)  
+Distance between the two points [ (x1,y1) & (x2,y2)] 
+d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2)) 
+Radius of the earth r = 6371.01 Kilometres 
+Input Data: 
+Input the latitude of coordinate 1: 25  
+Input the longitude of coordinate 1: 35 
+Input the latitude of coordinate 2: 35.5 
+Input the longitude of coordinate 2: 25.5 
+Expected Output 
+The distance between those points is: 1480.0848451069087 km
+"	"public class Exercise9 {
+
+public static void main(String[] args) {
+double lat1 = 25;
+double lon1 = 35;
+double lat2 = 35.5;
+double lon2 = 25.5;
+System.out.println(""Distance: "" + distance(lat1, lon1, lat2, lon2));
+   }
+public static double distance(double lat1, double lon1, double lat2, double lon2) {
+lat1 = Math.toRadians(lat1);
+lon1 = Math.toRadians(lon1);
+lat2 = Math.toRadians(lat2);
+lon2 = Math.toRadians(lon2);
+double earthRadius = 3959; // Miles
+return earthRadius * Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
+   }
+}
+	
+10. Write a Java program to reverse a string. 
+Input Data: 
+Input a string: The quick brown fox  
+Expected Output 
+Reverse string: xof nworb kciuq ehT 
+"	"import java.lang.*; 
+import java.io.*; 
+import java.util.*; 
+class ReverseString 
+{ 
+    public static void main(String[] args) 
+    { 
+        String input = ""GeeksforGeeks""; 
+        byte [] strAsByteArray = input.getBytes(); 
+        byte [] result = new byte [strAsByteArray.length]; 
+        for (int i = 0; i<strAsByteArray.length; i++) 
+        result[i] = strAsByteArray[strAsByteArray.length-i-1]; 
+        System.out.println(new String(result)); 
+    } 
+}"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
